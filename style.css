@@ -86,11 +86,13 @@ header input[type="search"] {
   text-decoration: none;
   font-size: 0.875rem;
 }
+
 .header-top {
-  display: flex;
-  align-items: center;
-  gap: 1.5rem;
-  width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+    width: 100%;
 }
 .nav-category {
   display: flex;
@@ -171,4 +173,45 @@ header input[type="search"] {
     margin: 0 auto;
     padding: 1rem;
     border: 1px solid #ccc;
+}
+
+/* Flexbox form row:
+   Best for keeping related form controls aligned in one row. */
+.search-form {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex: 1;
+    min-width: 0;
+}
+
+.search-form input {
+    flex: 1;
+    min-width: 0;
+}
+
+.search-form button {
+    padding: 0.75rem 1rem;
+}
+
+/* Allow header content to adapt to narrow screens. */
+.header-top {
+    flex-wrap: wrap;
+}
+
+.header-actions {
+    flex-wrap: wrap;
+}
+
+/* On wider screens, keep the header on one row. */
+
+@media (min-width: 64rem) {
+    .header-top {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .header-actions {
+        flex-wrap: nowrap;
+    }
 }
