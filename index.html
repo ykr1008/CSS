@@ -200,14 +200,39 @@
       <footer class="page-footer">
         <p>© 2026 Watch Store. Built for CSS Layout Lab.</p>
       </footer>
-      <!-- Product information modal -->
-      <div class="modal-overlay">
-        <div class="modal">
-          <h2>Product Details</h2>
-          <p>This is a sample modal overlay for the CSS layout assignment.</p>
-          <button type="button">Close</button>
+
+      <!-- Exercise 10: Demonstrate a stacking-context bug -->
+      <section class="z-index-exercise">
+        <h2>Exercise 10: Z-index bug</h2>
+
+        <div class="stack-parent stack-parent-a">
+          <p>Parent A — z-index: 1</p>
+          <div class="stack-child">Child A — z-index: 9999</div>
         </div>
-      </div>
+
+        <div class="stack-parent stack-parent-b">
+          <p>Parent B — z-index: 2</p>
+          <div class="stack-child-b">Child B — z-index: 1</div>
+        </div>
+      </section>
+
+      <!-- Exercise 11: Demonstrate CSS specificity -->
+      <section class="specificity-exercise">
+        <h2>Exercise 11: Specificity conflict</h2>
+        <p id="specificity-text" class="class-style">
+          This text demonstrates a CSS specificity conflict.
+        </p>
+      </section>
+      
+      <!-- Exercise 12: Demonstrate margin collapse -->
+      <section class="margin-exercise">
+        <h2>Exercise 12: Margin collapse</h2>
+
+        <div class="margin-box margin-box-one">First element</div>
+
+        <div class="margin-box margin-box-two">Second element</div>
+      </section>
+   
     </div>
   </body>
 </html>

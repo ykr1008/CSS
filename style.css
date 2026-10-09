@@ -6,8 +6,8 @@
 }
 /* Main page layout: stack the major page sections vertically. */
 .site-layout {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
 }
 header {
   display: flex;
@@ -88,11 +88,11 @@ header input[type="search"] {
 }
 
 .header-top {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    gap: 1rem;
-    width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 1rem;
+  width: 100%;
 }
 .nav-category {
   display: flex;
@@ -109,111 +109,111 @@ header input[type="search"] {
 }
 /* Wider phones: add a little more breathing room */
 @media (min-width: 36rem) {
-    .page-layout {
-        padding: 1.25rem;
-    }
+  .page-layout {
+    padding: 1.25rem;
+  }
 }
 /* Tablets and wider */
 @media (min-width: 48rem) {
-    .page-layout {
-        grid-template-columns: 14rem minmax(0, 1fr);
-        gap: 2rem;
-    }
+  .page-layout {
+    grid-template-columns: 14rem minmax(0, 1fr);
+    gap: 2rem;
+  }
 }
 /* Large desktop screens */
 @media (min-width: 64rem) {
-    .page-layout {
-        grid-template-columns: 16rem minmax(0, 1fr);
-        gap: 2rem;
-    }
+  .page-layout {
+    grid-template-columns: 16rem minmax(0, 1fr);
+    gap: 2rem;
+  }
 }
 
 /* Method 1: Flexbox
    Best for centering content inside a container. */
 .center-demo {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 12rem;
-    border: 1px solid #ccc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 12rem;
+  border: 1px solid #ccc;
 }
 
 /* Method 2: CSS Grid
    Best for centering content along both axes in a grid container. */
 .center-grid-demo {
-    display: grid;
-    place-items: center;
-    min-height: 12rem;
-    border: 1px solid #ccc;
+  display: grid;
+  place-items: center;
+  min-height: 12rem;
+  border: 1px solid #ccc;
 }
 
 /* Method 3: Absolute positioning
    Best for precise positioning inside a container,
    such as overlays and badges. */
 .center-position-demo {
-    position: relative;
-    min-height: 12rem;
-    border: 1px solid #ccc;
+  position: relative;
+  min-height: 12rem;
+  border: 1px solid #ccc;
 }
 
 .center-position-demo p {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
 }
 
 /* Method 4: Margin auto
    Best for horizontally centering a block
    with a defined or maximum width. */
 .center-margin-demo {
-    width: fit-content;
-    max-width: 100%;
-    margin: 0 auto;
-    padding: 1rem;
-    border: 1px solid #ccc;
+  width: fit-content;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 1rem;
+  border: 1px solid #ccc;
 }
 
 /* Flexbox form row:
    Best for keeping related form controls aligned in one row. */
 .search-form {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    flex: 1;
-    min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex: 1;
+  min-width: 0;
 }
 
 .search-form input {
-    flex: 1;
-    min-width: 0;
+  flex: 1;
+  min-width: 0;
 }
 
 .search-form button {
-    padding: 0.75rem 1rem;
+  padding: 0.75rem 1rem;
 }
 
 /* Allow header content to adapt to narrow screens. */
 .header-top {
-    flex-wrap: wrap;
+  flex-wrap: wrap;
 }
 
 .header-actions {
-    flex-wrap: wrap;
+  flex-wrap: wrap;
 }
 
 /* On wider screens, keep the header on one row. */
 
 @media (min-width: 64rem) {
-    .header-top {
-        flex-direction: row;
-        align-items: center;
-    }
+  .header-top {
+    flex-direction: row;
+    align-items: center;
+  }
 
-    .header-actions {
-        flex-wrap: nowrap;
-    }
+  .header-actions {
+    flex-wrap: nowrap;
+  }
 }
 
 /* Fixed modal overlay: cover the viewport and darken the page. */
@@ -228,26 +228,88 @@ header input[type="search"] {
   background-color: rgb(0 0 0 / 50%);
 }
 
-/* Modal box: display the content above the dark overlay. */
-.modal {
-  width: 100%;
-  max-width: 30rem;
-  padding: 2rem;
-  border-radius: 0.75rem;
-  background-color: #fff;
-  box-shadow: 0 0.5rem 1.5rem rgb(0 0 0 / 20%);
+/* Exercise 10: BUG — the child cannot escape its parent's stacking context. */
+.z-index-exercise {
+  padding: 1rem;
 }
 
-.modal h2 {
-  margin-top: 0;
+.stack-parent {
+  position: relative;
+  width: 20rem;
+  max-width: 100%;
+  min-height: 8rem;
+  padding: 1rem;
+  border: 2px solid #333;
 }
 
-.modal button {
-  padding: 0.75rem 1rem;
-  border: 0;
-  border-radius: 0.375rem;
-  background-color: #9f2089;
-  color: #fff;
-  cursor: pointer;
+.stack-parent-a {
+  position: relative;
+  z-index: 3;
+  background-color: #f5cccc;
+}
+
+.stack-child {
+  position: absolute;
+  top: 5rem;
+  left: 3rem;
+  z-index: 9999;
+  padding: 1rem;
+  background-color: #c62828;
+  color: white;
+}
+
+.stack-parent-b {
+  position: relative;
+  z-index: 2;
+  background-color: #cce0fa;
+  margin-top: -2rem;
+  margin-left: 5rem;
+}
+
+.stack-child-b {
+  position: relative;
+  z-index: 1;
+  padding: 1rem;
+  background-color: #1565c0;
+  color: white;
+}
+
+/* Exercise 11: BUG — the ID selector beats the class selector.
+#specificity-text {
+  color: red;
+}
+
+.class-style {
+  color: blue;
+} */
+
+/* Exercise 11: FIX — use the class selector without an ID conflict. */
+.class-style {
+  color: blue;
+}
+
+/* Exercise 12: BUG — adjacent vertical margins collapse. */
+.margin-exercise {
+  padding: 1rem;
+}
+.margin-box {
+  padding: 1rem;
+  border: 2px solid #333;
+}
+.margin-box-one {
+  margin-bottom: 3rem;
+  background-color: #f5cccc;
+}
+.margin-box-two {
+  margin-top: 2rem;
+  background-color: #cce0fa;
+}
+
+/* Exercise 12: FIX — flex layout prevents adjacent margins from collapsing. */
+.margin-exercise {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding: 1rem;
 }
 
