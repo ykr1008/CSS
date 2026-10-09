@@ -100,3 +100,23 @@ header input[type="search"] {
   text-decoration: none;
   font-size: 0.875rem;
 }
+/* Wider phones: add a little more breathing room */
+@media (min-width: 36rem) {
+    .page-layout {
+        padding: 1.25rem;
+    }
+}
+/* Tablets and wider */
+@media (min-width: 48rem) {
+    .page-layout {
+        grid-template-columns: 14rem minmax(0, 1fr);
+        gap: 2rem;
+    }
+}
+/* Large desktop screens */
+@media (min-width: 64rem) {
+    .page-layout {
+        grid-template-columns: 16rem minmax(0, 1fr);
+        gap: 2rem;
+    }
+}
