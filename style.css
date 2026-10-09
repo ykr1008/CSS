@@ -4,6 +4,11 @@
 *::after {
   box-sizing: border-box;
 }
+/* Main page layout: stack the major page sections vertically. */
+.site-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+}
 header {
   display: flex;
   flex-direction: column;
@@ -46,7 +51,7 @@ body {
 }
 .page-layout {
   display: grid;
-  grid-template-columns: 16rem 1fr;
+  grid-template-columns: minmax(0, 1fr);
   gap: 1.5rem;
   padding: 1.5rem;
   align-items: start;
