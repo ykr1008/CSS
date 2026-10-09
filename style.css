@@ -4,6 +4,13 @@
 *::after {
   box-sizing: border-box;
 }
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+    padding: 1rem 1.5rem;
+}
 body {
     margin: 0;
     font-family: Arial, sans-serif;
@@ -19,9 +26,60 @@ body {
 .product-card {
     width: 100%;
     max-width: 18rem;
+    padding: 0.75rem;
+    border: 2px solid #e5e5e5;
+    border-radius: 0.5rem;
 }
 .product-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
     gap: 1rem;
+}
+.product-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+.page-layout {
+    display: grid;
+    grid-template-columns: 16rem 1fr;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    align-items: start;
+}
+.product-price {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #333;
+}
+.logo {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #9f2089;
+    text-decoration: none;
+}
+header input[type="search"] {
+    flex: 1;
+    min-width: 0;
+    padding: 0.75rem 1rem;
+    border: 1px solid #d6d6d6;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+}
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.header-actions a {
+    color: #333;
+    text-decoration: none;
+    font-size: 0.875rem;
+}
+.header-top {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    width: 100%;
 }
